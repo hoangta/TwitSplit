@@ -44,6 +44,7 @@ class AddTweeterViewController: UIViewController {
         }
                 
         //Check if the tweet need more process for being chunky
+        //Further note: I used guard to return unwanted result, if the one is expected, use 'if' if neccessary
         if tweet.count <= 50 {
             delegate?.tweeterViewController(self, didSaveNewTweets: [textView.text])
             navigationController?.popViewController(animated: true)
@@ -64,39 +65,39 @@ class AddTweeterViewController: UIViewController {
         }
     }
     
-    enum SplitMessageError: Error {
-        case longAndNoSpaceTweet
-    }
-    
-    private func splitMessage(_ tweet: String, estimatedNumberOfParts: Int? = nil) throws -> [String] {
-        let estimatedNumberOfParts = estimatedNumberOfParts ?? tweet.count/50 + 1 //Combined with the part indicator, +1 is always valid here
-        var parts = ["1/\(estimatedNumberOfParts)"]
-        for word in tweet.components(separatedBy: .whitespacesAndNewlines) {
-            let tempPart = parts[parts.count - 1] + " " + word
-            //Check valid tweet
-            if tempPart.count <= 50 {
-                parts[parts.count - 1] = tempPart
-                continue
-            }
-            
-            //Check if the new indicator is greater than the estimated
-            if parts.count + 1 > estimatedNumberOfParts {
-                return try splitMessage(tweet, estimatedNumberOfParts: estimatedNumberOfParts + 1)
-            }
-            
-            //Add new part
-            let newPart = "\(parts.count + 1)/\(estimatedNumberOfParts) \(word)"
-            if newPart.count > 50 {
-                throw SplitMessageError.longAndNoSpaceTweet
-            }
-            parts.append(newPart)
-        }
-        return parts
-    }
-    
     private func showAlert(_ text: String) {
         let alert = UIAlertController(title: nil, message: text, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
+}
+
+enum SplitMessageError: Error {
+    case longAndNoSpaceTweet
+}
+
+func splitMessage(_ tweet: String, maxLengthPerMessage: Int = 50, estimatedNumberOfParts: Int? = nil) throws -> [String] {
+    let estimatedNumberOfParts = estimatedNumberOfParts ?? tweet.count/maxLengthPerMessage + 1 //Combined with the part indicator, +1 is always valid here
+    var parts = ["1/\(estimatedNumberOfParts)"]
+    for word in tweet.components(separatedBy: .whitespacesAndNewlines) {
+        let tempPart = parts[parts.count - 1] + " " + word
+        //Check valid tweet
+        if tempPart.count <= maxLengthPerMessage {
+            parts[parts.count - 1] = tempPart
+            continue
+        }
+        
+        //Check if the new indicator is greater than the estimated
+        if parts.count + 1 > estimatedNumberOfParts {
+            return try splitMessage(tweet, estimatedNumberOfParts: estimatedNumberOfParts + 1)
+        }
+        
+        //Add new part
+        let newPart = "\(parts.count + 1)/\(estimatedNumberOfParts) \(word)"
+        if newPart.count > maxLengthPerMessage {
+            throw SplitMessageError.longAndNoSpaceTweet
+        }
+        parts.append(newPart)
+    }
+    return parts
 }

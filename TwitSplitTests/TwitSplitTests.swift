@@ -21,9 +21,30 @@ class TwitSplitTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testMessageSplitting() {
+        //Case 1
+        var tweets1: [String]?
+        do {
+            tweets1 = try splitMessage("Thisisaverylonglonglongboringtextwithoutanyseparators")
+        }
+        catch SplitMessageError.longAndNoSpaceTweet {
+            print("Your tweet contains a bunch of nonsense, please check again.")
+        }
+        catch {
+            print("Unexpected error: \(error).")
+        }
+        
+        XCTAssertNil(tweets1)
+        
+        //Case 2
+        let tweets2 = try! splitMessage("This is a very long long long boring text without any separators")
+        print(tweets2)
+        XCTAssertTrue(tweets2.count == 2)
+        
+        //Case 2
+        let tweets3 = try! splitMessage("This is a very long long long boring text without any separators, hopefully long enough to make it to 3 parts")
+        print(tweets3)
+        XCTAssertTrue(tweets3.count == 3)
     }
     
     func testPerformanceExample() {

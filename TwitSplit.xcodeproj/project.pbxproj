@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		060677BF206CD0CB00E0C6DC /* AddTweeterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060677BE206CD0CB00E0C6DC /* AddTweeterViewController.swift */; };
 		060677C2206CD13300E0C6DC /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060677C1206CD13300E0C6DC /* UIStoryboard+Extensions.swift */; };
-		060677C3206CD13300E0C6DC /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060677C1206CD13300E0C6DC /* UIStoryboard+Extensions.swift */; };
 		06DDE1C8206CC5AA008A1B3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DDE1C7206CC5AA008A1B3B /* AppDelegate.swift */; };
 		06DDE1CA206CC5AA008A1B3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DDE1C9206CC5AA008A1B3B /* ViewController.swift */; };
 		06DDE1CD206CC5AA008A1B3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06DDE1CB206CC5AA008A1B3B /* Main.storyboard */; };
@@ -19,7 +18,6 @@
 		06DDE1E9206CC61B008A1B3B /* TweeterListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DDE1E7206CC61B008A1B3B /* TweeterListingViewController.swift */; };
 		06DDE1EC206CC9D4008A1B3B /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DDE1EB206CC9D3008A1B3B /* UITableView+Extensions.swift */; };
 		06DDE1EF206CCA4F008A1B3B /* TweeterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DDE1EE206CCA4F008A1B3B /* TweeterViewCell.swift */; };
-		06DDE1F0206CCA4F008A1B3B /* TweeterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DDE1EE206CCA4F008A1B3B /* TweeterViewCell.swift */; };
 		06DDE1F2206CCDC4008A1B3B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DDE1F1206CCDC4008A1B3B /* UIView+Extensions.swift */; };
 		5FCFAA2821587F232610A17D /* Pods_TwitSplit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B06FF75D10AECAC3B93ECD /* Pods_TwitSplit.framework */; };
 /* End PBXBuildFile section */
@@ -324,8 +322,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				06DDE1DD206CC5AA008A1B3B /* TwitSplitTests.swift in Sources */,
-				060677C3206CD13300E0C6DC /* UIStoryboard+Extensions.swift in Sources */,
-				06DDE1F0206CCA4F008A1B3B /* TweeterViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
