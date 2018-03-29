@@ -39,6 +39,7 @@ class AddTweeterViewController: UIViewController {
         
         //We don't want the empty tweet
         guard tweet.trimmingCharacters(in: .whitespacesAndNewlines).count != 0 else {
+            showAlert("Are those spaces supposed to be invisible characters?")
             return
         }
                 
@@ -56,7 +57,7 @@ class AddTweeterViewController: UIViewController {
             navigationController?.popViewController(animated: true)
         }
         catch SplitMessageError.longAndNoSpaceTweet {
-            print("No, just no..")
+            showAlert("Your tweet contains a bunch of nonsense, please check again.")
         }
         catch {
             print("Unexpected error: \(error).")
@@ -91,5 +92,11 @@ class AddTweeterViewController: UIViewController {
             parts.append(newPart)
         }
         return parts
+    }
+    
+    private func showAlert(_ text: String) {
+        let alert = UIAlertController(title: nil, message: text, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
