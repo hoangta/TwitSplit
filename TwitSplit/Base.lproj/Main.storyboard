@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Tweeter-->
         <scene sceneID="tne-QT-ifu">
@@ -53,16 +58,33 @@
             </objects>
             <point key="canvasLocation" x="372" y="31.934032983508249"/>
         </scene>
-        <!--Add Tweeter View Controller-->
+        <!--Add New-->
         <scene sceneID="HFy-gL-RWD">
             <objects>
-                <viewController storyboardIdentifier="AddTweeterViewController" id="AQN-ce-Brb" customClass="AddTweeterViewController" customModule="TwitSplit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddTweeterViewController" title="Add New" id="AQN-ce-Brb" customClass="AddTweeterViewController" customModule="TwitSplit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7wL-9n-Rr0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Xaz-3t-yfx">
+                                <rect key="frame" x="10" y="74" width="355" height="583"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Xaz-3t-yfx" firstAttribute="leading" secondItem="SE2-Og-au6" secondAttribute="leading" constant="10" id="FA8-6V-yUQ"/>
+                            <constraint firstItem="Xaz-3t-yfx" firstAttribute="top" secondItem="SE2-Og-au6" secondAttribute="top" constant="10" id="J2l-iV-0nk"/>
+                            <constraint firstItem="SE2-Og-au6" firstAttribute="bottom" secondItem="Xaz-3t-yfx" secondAttribute="bottom" constant="10" id="cg3-gl-j5W"/>
+                            <constraint firstItem="SE2-Og-au6" firstAttribute="trailing" secondItem="Xaz-3t-yfx" secondAttribute="trailing" constant="10" id="gyV-j3-GwA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SE2-Og-au6"/>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="Xaz-3t-yfx" id="ADp-9r-jKh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nbo-JA-cWd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -76,9 +98,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QE1-z1-CT3">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.9882352941176471" green="0.27843137254901962" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="25"/>
+                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>

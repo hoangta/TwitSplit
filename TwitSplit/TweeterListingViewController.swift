@@ -31,6 +31,7 @@ class TweeterListingViewController: UIViewController {
     
     @IBAction func addTweeter(_ sender: Any) {
         let controller = UIStoryboard.main.controller(AddTweeterViewController.self)
+        controller.delegate = self
         navigationController?.pushViewController(controller, animated: true)
     }
 }
@@ -45,5 +46,14 @@ extension TweeterListingViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(TweeterViewCell.self, for: indexPath)
         cell.contentLabel.text = tweeters[indexPath.row]
         return cell
+    }
+}
+
+extension TweeterListingViewController: AddTweeterViewControllerDelegate {
+    
+    func tweeterViewController(_ controller: AddTweeterViewController, didSaveNewTweet tweet: String) {
+        //Newest tweet goes to top
+        tweeters.insert(tweet, at: 0)
+        tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
     }
 }
