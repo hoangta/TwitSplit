@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		060677BF206CD0CB00E0C6DC /* AddTweeterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060677BE206CD0CB00E0C6DC /* AddTweeterViewController.swift */; };
 		060677C2206CD13300E0C6DC /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060677C1206CD13300E0C6DC /* UIStoryboard+Extensions.swift */; };
+		0606CC212073B70A00679DE7 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0606CC202073B70A00679DE7 /* Tweet.swift */; };
 		06DDE1C8206CC5AA008A1B3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DDE1C7206CC5AA008A1B3B /* AppDelegate.swift */; };
 		06DDE1CD206CC5AA008A1B3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06DDE1CB206CC5AA008A1B3B /* Main.storyboard */; };
 		06DDE1CF206CC5AA008A1B3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06DDE1CE206CC5AA008A1B3B /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		060677BE206CD0CB00E0C6DC /* AddTweeterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTweeterViewController.swift; sourceTree = "<group>"; };
 		060677C1206CD13300E0C6DC /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
+		0606CC202073B70A00679DE7 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		06DDE1C4206CC5AA008A1B3B /* TwitSplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitSplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06DDE1C7206CC5AA008A1B3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06DDE1CC206CC5AA008A1B3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				060677C0206CD0DD00E0C6DC /* Extensions */,
 				06DDE1C7206CC5AA008A1B3B /* AppDelegate.swift */,
+				0606CC202073B70A00679DE7 /* Tweet.swift */,
 				06DDE1EE206CCA4F008A1B3B /* TweetViewCell.swift */,
 				06DDE1E7206CC61B008A1B3B /* TweetListingViewController.swift */,
 				060677BE206CD0CB00E0C6DC /* AddTweeterViewController.swift */,
@@ -310,6 +313,7 @@
 				060677C2206CD13300E0C6DC /* UIStoryboard+Extensions.swift in Sources */,
 				06DDE1E9206CC61B008A1B3B /* TweetListingViewController.swift in Sources */,
 				06DDE1C8206CC5AA008A1B3B /* AppDelegate.swift in Sources */,
+				0606CC212073B70A00679DE7 /* Tweet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddTweetViewControllerDelegate {
-    func tweetViewController(_ controller: AddTweetViewController, didSaveNewTweets tweets: [String])
+    func tweetViewController(_ controller: AddTweetViewController, didSaveNewTweets tweets: [Tweet])
 }
 
 class AddTweetViewController: UIViewController {
@@ -33,31 +33,20 @@ class AddTweetViewController: UIViewController {
     
     @objc private func saveTweeter() {
         //Sanity check
-        guard let tweet = textView.text else {
-            return
-        }
-        
-        //We don't want the empty tweet
-        guard tweet.trimmingCharacters(in: .whitespacesAndNewlines).count != 0 else {
-            showAlert("Are those spaces supposed to be invisible characters?")
-            return
-        }
-                
-        //Check if the tweet need more process for being chunky
-        //Further note: I used guard to return unwanted result, if the one is expected, use 'if' if neccessary
-        if tweet.count <= 50 {
-            delegate?.tweetViewController(self, didSaveNewTweets: [textView.text])
-            navigationController?.popViewController(animated: true)
+        guard let text = textView.text else {
             return
         }
         
         //Chunky tweet logic starts here...
         do {
-            let parts = try splitMessage(tweet)
-            delegate?.tweetViewController(self, didSaveNewTweets: parts)
+            let tweets = try Tweet.makeTweets(from: text)
+            delegate?.tweetViewController(self, didSaveNewTweets: tweets)
             navigationController?.popViewController(animated: true)
         }
-        catch SplitMessageError.longAndNoSpaceTweet {
+        catch MakeTweetError.invisibleCharacters {
+            showAlert("Are those spaces supposed to be invisible characters?")
+        }
+        catch MakeTweetError.nonsenseTweet {
             showAlert("Your tweet contains a bunch of nonsense, please check again.")
         }
         catch {
@@ -72,32 +61,4 @@ class AddTweetViewController: UIViewController {
     }
 }
 
-enum SplitMessageError: Error {
-    case longAndNoSpaceTweet
-}
 
-func splitMessage(_ tweet: String, maxLengthPerMessage: Int = 50, estimatedNumberOfParts: Int? = nil) throws -> [String] {
-    let estimatedNumberOfParts = estimatedNumberOfParts ?? tweet.count/maxLengthPerMessage + 1 //Combined with the part indicator, +1 is always valid here
-    var parts = ["1/\(estimatedNumberOfParts)"]
-    for word in tweet.components(separatedBy: .whitespacesAndNewlines) {
-        let tempPart = parts[parts.count - 1] + " " + word
-        //Check valid tweet
-        if tempPart.count <= maxLengthPerMessage {
-            parts[parts.count - 1] = tempPart
-            continue
-        }
-        
-        //Check if the new indicator is greater than the estimated
-        if parts.count + 1 > estimatedNumberOfParts {
-            return try splitMessage(tweet, estimatedNumberOfParts: estimatedNumberOfParts + 1)
-        }
-        
-        //Add new part
-        let newPart = "\(parts.count + 1)/\(estimatedNumberOfParts) \(word)"
-        if newPart.count > maxLengthPerMessage {
-            throw SplitMessageError.longAndNoSpaceTweet
-        }
-        parts.append(newPart)
-    }
-    return parts
-}

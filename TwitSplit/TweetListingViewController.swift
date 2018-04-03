@@ -11,7 +11,7 @@ import UIKit
 class TweetListingViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var tweets = [String]()
+    var tweets = [Tweet]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +25,6 @@ class TweetListingViewController: UIViewController {
         
         //Register cells
         tableView.register(TweetViewCell.self)
-        
-        tweets = ["Hey", "There"]
     }
     
     @IBAction func addTweeter(_ sender: Any) {
@@ -44,13 +42,13 @@ extension TweetListingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(TweetViewCell.self, for: indexPath)
-        cell.contentLabel.text = tweets[indexPath.row]
+        cell.contentLabel.text = tweets[indexPath.row].content
         return cell
     }
 }
 
 extension TweetListingViewController: AddTweetViewControllerDelegate {
-    func tweetViewController(_ controller: AddTweetViewController, didSaveNewTweets tweets: [String]) {
+    func tweetViewController(_ controller: AddTweetViewController, didSaveNewTweets tweets: [Tweet]) {
         //Newest tweet goes to top
         self.tweets = tweets + self.tweets
         tableView.insertRows(at: tweets.enumerated().map { IndexPath(row: $0.offset, section: 0) }, with: .automatic)

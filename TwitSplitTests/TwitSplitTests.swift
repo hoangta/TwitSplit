@@ -23,11 +23,11 @@ class TwitSplitTests: XCTestCase {
     
     func testMessageSplitting() {
         //Case 1
-        var tweets1: [String]?
+        var tweets1: [Tweet]?
         do {
-            tweets1 = try splitMessage("Thisisaverylonglonglongboringtextwithoutanyseparators")
+            tweets1 = try Tweet.makeTweets(from: "Thisisaverylonglonglongboringtextwithoutanyseparators")
         }
-        catch SplitMessageError.longAndNoSpaceTweet {
+        catch MakeTweetError.nonsenseTweet {
             print("Your tweet contains a bunch of nonsense, please check again.")
         }
         catch {
@@ -37,12 +37,12 @@ class TwitSplitTests: XCTestCase {
         XCTAssertNil(tweets1)
         
         //Case 2
-        let tweets2 = try! splitMessage("This is a very long long long boring text without any separators")
+        let tweets2 = try! Tweet.makeTweets(from: "This is a very long long long boring text without any separators")
         print(tweets2)
         XCTAssertTrue(tweets2.count == 2)
         
         //Case 2
-        let tweets3 = try! splitMessage("This is a very long long long boring text without any separators, hopefully long enough to make it to 3 parts")
+        let tweets3 = try! Tweet.makeTweets(from: "This is a very long long long boring text without any separators, hopefully long enough to make it to 3 parts")
         print(tweets3)
         XCTAssertTrue(tweets3.count == 3)
     }
