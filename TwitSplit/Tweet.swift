@@ -22,8 +22,7 @@ enum MakeTweetError: Error {
 
 //Tweet factory
 extension Tweet {
-    
-    static func makeTweets(from text: String, estimatedNumberOfParts: Int? = nil) throws -> [Tweet] {
+    static func makeTweets(from text: String) throws -> [Tweet] {
         //We don't want the empty tweet
         guard text.trimmingCharacters(in: .whitespacesAndNewlines).count != 0 else {
             throw MakeTweetError.invisibleCharacters
@@ -35,10 +34,14 @@ extension Tweet {
             return [Tweet(text)]
         }
         
-        let maxLengthPerTweet = 50
-        let estimatedNumberOfParts = estimatedNumberOfParts ?? text.count/maxLengthPerTweet + 1 //Combined with the part indicator, +1 is always valid here
+        return try makeTweets(chunkyText: text)
+    }
+    
+    static private func makeTweets(chunkyText: String, estimatedNumberOfParts: Int? = nil) throws -> [Tweet] {
+        let maxLengthPerTweet = 50 //Should we make it longer..?
+        let estimatedNumberOfParts = estimatedNumberOfParts ?? chunkyText.count/maxLengthPerTweet + 1 //Combined with the part indicator, +1 is always valid here
         var parts = ["1/\(estimatedNumberOfParts)"]
-        for word in text.components(separatedBy: .whitespacesAndNewlines) {
+        for word in chunkyText.components(separatedBy: .whitespacesAndNewlines) {
             let tempPart = parts[parts.count - 1] + " " + word
             //Check valid tweet
             if tempPart.count <= 50 {
@@ -48,7 +51,7 @@ extension Tweet {
             
             //Check if the new indicator is greater than the estimated
             if parts.count + 1 > estimatedNumberOfParts {
-                return try makeTweets(from: text, estimatedNumberOfParts: estimatedNumberOfParts + 1)
+                return try makeTweets(chunkyText: chunkyText, estimatedNumberOfParts: estimatedNumberOfParts + 1)
             }
             
             //Add new part
