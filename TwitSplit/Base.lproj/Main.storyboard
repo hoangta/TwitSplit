@@ -18,7 +18,7 @@
         <!--Tweeter-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="TweeterListingViewController" id="BYZ-38-t0r" customClass="TweeterListingViewController" customModule="TwitSplit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TweetListingViewController" id="BYZ-38-t0r" customClass="TweetListingViewController" customModule="TwitSplit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,7 +51,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="cyd-Y4-CTW" id="F8W-zG-oO5"/>
-                        <segue destination="AQN-ce-Brb" kind="show" id="gW7-cH-pwk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -61,13 +60,13 @@
         <!--Add New-->
         <scene sceneID="HFy-gL-RWD">
             <objects>
-                <viewController storyboardIdentifier="AddTweeterViewController" title="Add New" id="AQN-ce-Brb" customClass="AddTweeterViewController" customModule="TwitSplit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddTweetViewController" title="Add New" id="AQN-ce-Brb" customClass="AddTweetViewController" customModule="TwitSplit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7wL-9n-Rr0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Xaz-3t-yfx">
-                                <rect key="frame" x="10" y="74" width="355" height="583"/>
+                                <rect key="frame" x="10" y="30" width="355" height="627"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

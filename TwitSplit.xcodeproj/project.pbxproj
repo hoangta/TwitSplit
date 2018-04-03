@@ -10,14 +10,13 @@
 		060677BF206CD0CB00E0C6DC /* AddTweeterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060677BE206CD0CB00E0C6DC /* AddTweeterViewController.swift */; };
 		060677C2206CD13300E0C6DC /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060677C1206CD13300E0C6DC /* UIStoryboard+Extensions.swift */; };
 		06DDE1C8206CC5AA008A1B3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DDE1C7206CC5AA008A1B3B /* AppDelegate.swift */; };
-		06DDE1CA206CC5AA008A1B3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DDE1C9206CC5AA008A1B3B /* ViewController.swift */; };
 		06DDE1CD206CC5AA008A1B3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06DDE1CB206CC5AA008A1B3B /* Main.storyboard */; };
 		06DDE1CF206CC5AA008A1B3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06DDE1CE206CC5AA008A1B3B /* Assets.xcassets */; };
 		06DDE1D2206CC5AA008A1B3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06DDE1D0206CC5AA008A1B3B /* LaunchScreen.storyboard */; };
 		06DDE1DD206CC5AA008A1B3B /* TwitSplitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DDE1DC206CC5AA008A1B3B /* TwitSplitTests.swift */; };
-		06DDE1E9206CC61B008A1B3B /* TweeterListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DDE1E7206CC61B008A1B3B /* TweeterListingViewController.swift */; };
+		06DDE1E9206CC61B008A1B3B /* TweetListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DDE1E7206CC61B008A1B3B /* TweetListingViewController.swift */; };
 		06DDE1EC206CC9D4008A1B3B /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DDE1EB206CC9D3008A1B3B /* UITableView+Extensions.swift */; };
-		06DDE1EF206CCA4F008A1B3B /* TweeterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DDE1EE206CCA4F008A1B3B /* TweeterViewCell.swift */; };
+		06DDE1EF206CCA4F008A1B3B /* TweetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DDE1EE206CCA4F008A1B3B /* TweetViewCell.swift */; };
 		06DDE1F2206CCDC4008A1B3B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DDE1F1206CCDC4008A1B3B /* UIView+Extensions.swift */; };
 		5FCFAA2821587F232610A17D /* Pods_TwitSplit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B06FF75D10AECAC3B93ECD /* Pods_TwitSplit.framework */; };
 /* End PBXBuildFile section */
@@ -37,7 +36,6 @@
 		060677C1206CD13300E0C6DC /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
 		06DDE1C4206CC5AA008A1B3B /* TwitSplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitSplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06DDE1C7206CC5AA008A1B3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		06DDE1C9206CC5AA008A1B3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		06DDE1CC206CC5AA008A1B3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		06DDE1CE206CC5AA008A1B3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06DDE1D1206CC5AA008A1B3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -45,9 +43,9 @@
 		06DDE1D8206CC5AA008A1B3B /* TwitSplitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwitSplitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06DDE1DC206CC5AA008A1B3B /* TwitSplitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitSplitTests.swift; sourceTree = "<group>"; };
 		06DDE1DE206CC5AA008A1B3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		06DDE1E7206CC61B008A1B3B /* TweeterListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweeterListingViewController.swift; sourceTree = "<group>"; };
+		06DDE1E7206CC61B008A1B3B /* TweetListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetListingViewController.swift; sourceTree = "<group>"; };
 		06DDE1EB206CC9D3008A1B3B /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
-		06DDE1EE206CCA4F008A1B3B /* TweeterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweeterViewCell.swift; sourceTree = "<group>"; };
+		06DDE1EE206CCA4F008A1B3B /* TweetViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewCell.swift; sourceTree = "<group>"; };
 		06DDE1F1206CCDC4008A1B3B /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		0CE55DEDD2AB06DC3952B727 /* Pods-TwitSplit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitSplit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitSplit/Pods-TwitSplit.debug.xcconfig"; sourceTree = "<group>"; };
 		603A2BF9A85C16AC35850DF9 /* Pods-TwitSplit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitSplit.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitSplit/Pods-TwitSplit.release.xcconfig"; sourceTree = "<group>"; };
@@ -108,10 +106,9 @@
 			children = (
 				060677C0206CD0DD00E0C6DC /* Extensions */,
 				06DDE1C7206CC5AA008A1B3B /* AppDelegate.swift */,
-				06DDE1EE206CCA4F008A1B3B /* TweeterViewCell.swift */,
-				06DDE1E7206CC61B008A1B3B /* TweeterListingViewController.swift */,
+				06DDE1EE206CCA4F008A1B3B /* TweetViewCell.swift */,
+				06DDE1E7206CC61B008A1B3B /* TweetListingViewController.swift */,
 				060677BE206CD0CB00E0C6DC /* AddTweeterViewController.swift */,
-				06DDE1C9206CC5AA008A1B3B /* ViewController.swift */,
 				06DDE1CB206CC5AA008A1B3B /* Main.storyboard */,
 				06DDE1CE206CC5AA008A1B3B /* Assets.xcassets */,
 				06DDE1D0206CC5AA008A1B3B /* LaunchScreen.storyboard */,
@@ -308,11 +305,10 @@
 			files = (
 				06DDE1F2206CCDC4008A1B3B /* UIView+Extensions.swift in Sources */,
 				06DDE1EC206CC9D4008A1B3B /* UITableView+Extensions.swift in Sources */,
-				06DDE1EF206CCA4F008A1B3B /* TweeterViewCell.swift in Sources */,
+				06DDE1EF206CCA4F008A1B3B /* TweetViewCell.swift in Sources */,
 				060677BF206CD0CB00E0C6DC /* AddTweeterViewController.swift in Sources */,
 				060677C2206CD13300E0C6DC /* UIStoryboard+Extensions.swift in Sources */,
-				06DDE1E9206CC61B008A1B3B /* TweeterListingViewController.swift in Sources */,
-				06DDE1CA206CC5AA008A1B3B /* ViewController.swift in Sources */,
+				06DDE1E9206CC61B008A1B3B /* TweetListingViewController.swift in Sources */,
 				06DDE1C8206CC5AA008A1B3B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

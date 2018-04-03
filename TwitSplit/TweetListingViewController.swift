@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TweeterListingViewController: UIViewController {
+class TweetListingViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var tweets = [String]()
@@ -24,34 +24,33 @@ class TweeterListingViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         
         //Register cells
-        tableView.register(TweeterViewCell.self)
+        tableView.register(TweetViewCell.self)
         
         tweets = ["Hey", "There"]
     }
     
     @IBAction func addTweeter(_ sender: Any) {
-        let controller = UIStoryboard.main.controller(AddTweeterViewController.self)
+        let controller = UIStoryboard.main.controller(AddTweetViewController.self)
         controller.delegate = self
         navigationController?.pushViewController(controller, animated: true)
     }
 }
 
-extension TweeterListingViewController: UITableViewDataSource {
+extension TweetListingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tweets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(TweeterViewCell.self, for: indexPath)
+        let cell = tableView.dequeueReusableCell(TweetViewCell.self, for: indexPath)
         cell.contentLabel.text = tweets[indexPath.row]
         return cell
     }
 }
 
-extension TweeterListingViewController: AddTweeterViewControllerDelegate {
-    
-    func tweeterViewController(_ controller: AddTweeterViewController, didSaveNewTweets tweets: [String]) {
+extension TweetListingViewController: AddTweetViewControllerDelegate {
+    func tweetViewController(_ controller: AddTweetViewController, didSaveNewTweets tweets: [String]) {
         //Newest tweet goes to top
         self.tweets = tweets + self.tweets
         tableView.insertRows(at: tweets.enumerated().map { IndexPath(row: $0.offset, section: 0) }, with: .automatic)

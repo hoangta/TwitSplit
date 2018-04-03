@@ -11,7 +11,7 @@ import SnapKit
 
 //Im using snapkit for managing autolayout here...
 
-class TweeterViewCell: UITableViewCell {
+class TweetViewCell: UITableViewCell {
 
     var contentLabel: UILabel! //Assign with the tweeter's text
     
@@ -42,6 +42,7 @@ class TweeterViewCell: UITableViewCell {
         
         contentLabel = UILabel()
         contentLabel.font = UIFont(name: "Avenir-Roman", size: 14)
+        contentLabel.numberOfLines = 0
         contentLabel.textColor = #colorLiteral(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
         holderView.addSubview(contentLabel)
         contentLabel.snp.makeConstraints { make in

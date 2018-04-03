@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol AddTweeterViewControllerDelegate {
-    func tweeterViewController(_ controller: AddTweeterViewController, didSaveNewTweets tweets: [String])
+protocol AddTweetViewControllerDelegate {
+    func tweetViewController(_ controller: AddTweetViewController, didSaveNewTweets tweets: [String])
 }
 
-class AddTweeterViewController: UIViewController {
+class AddTweetViewController: UIViewController {
 
-    var delegate: AddTweeterViewControllerDelegate?
+    var delegate: AddTweetViewControllerDelegate?
     @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
@@ -46,7 +46,7 @@ class AddTweeterViewController: UIViewController {
         //Check if the tweet need more process for being chunky
         //Further note: I used guard to return unwanted result, if the one is expected, use 'if' if neccessary
         if tweet.count <= 50 {
-            delegate?.tweeterViewController(self, didSaveNewTweets: [textView.text])
+            delegate?.tweetViewController(self, didSaveNewTweets: [textView.text])
             navigationController?.popViewController(animated: true)
             return
         }
@@ -54,7 +54,7 @@ class AddTweeterViewController: UIViewController {
         //Chunky tweet logic starts here...
         do {
             let parts = try splitMessage(tweet)
-            delegate?.tweeterViewController(self, didSaveNewTweets: parts)
+            delegate?.tweetViewController(self, didSaveNewTweets: parts)
             navigationController?.popViewController(animated: true)
         }
         catch SplitMessageError.longAndNoSpaceTweet {
